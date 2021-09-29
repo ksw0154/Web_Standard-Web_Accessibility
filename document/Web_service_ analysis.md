@@ -1,41 +1,81 @@
-### Web Service 선정
+## Web Service 선정 및 분석
 
-#### Daum 금융 [외국인/기관매매]
+#### 선정 웹 서비스 : Daum 금융 [외국인/기관매매]
 
 - https://finance.daum.net/domestic/influential_investors
 
 ---
 
-### 웹 표준 준수 및 웹 접근성 관점에서 서비스 문제점 분석
+## 웹 표준 준수 및 웹 접근성 관점에서 서비스 문제점 분석
 
-table
-colgroup
+### `table`
 
-- width 속성을 직접적으로 작성되어 있다.
-- HTML5에서는 width 속성을 직접적으로 작성하는 것을 지양한다.
-- Style Attribute를 이용해서 작성하거나 class를 지정해서 스타일을 입혀준다.
+#### `<colgroup>`
 
-a tag
+```html
+<colgroup>
+  <col width="74" />
+</colgroup>
+```
 
-- ,=“”
-- a 태그에서 작성 가능한 속성이 아니다.
+- `width` 속성을 직접적으로 작성되어 있다.
+- HTML5에서는 `width` 속성을 직접적으로 작성하는 것을 지양한다.
+- `Style Attribute`를 이용해서 작성하거나 `class`를 지정해서 스타일을 입혀준다.
 
-table
+#### `<caption>`, `scope`, `scope="colgroup"`
 
-- caption을 통한 표의 제목이나 요약정보 표시가 없다.
-- scope를 지정하지 않아서 table의 데이터를 인식하고 읽는 순서가 결정되어 있지 않다.
-- colgroup을 사용하지 않아 스크린리더가 인식할 때 병합된 셀의 데이터를 구분할 수 없다.
+- `caption`을 통한 표의 제목이나 요약정보 표시가 없다.
+- `scope`를 지정하지 않아서 `table`의 데이터를 인식하고 읽는 순서가 결정되어 있지 않다.
+- `colgroup`을 사용하지 않아 스크린리더가 인식할 때 병합된 셀의 데이터를 구분할 수 없다.
 
-명암비
+### 명암비
 
-- background-color와 text의 color 명암비가 접근성 관점에서 지켜지고 있지 않다.
+- `background-color`와 text의 `color` 명암비가 접근성 관점에서 지켜지고 있지 않다.
 - 순매수 종목 (3.73), 순매도 종목(3.62)
 
-아이콘의 크기
+```html
+<th colspan="4" class="red">순매수 종목</th>
+<th colspan="4" class="blue">순매도 종목</th>
+```
+
+```css
+.finance .leftW table thead th.red {
+  /* .red background-color */
+  background-color: #ffe4e4;
+}
+
+.finance .leftW table thead th.blue {
+  /* .blue background-color */
+  background-color: #d6e9ff;
+}
+
+.finance .leftW table thead th {
+  /* text color */
+  color: #777777;
+}
+```
+
+### 아이콘의 크기
+
+```html
+<a href="/domestic/chart_slides/influential_investors?market=KOSPI" class="btnChart" title="차트슬라이드"><i>-</i>차트슬라이드</a>
+```
+
+```css
+.finance .leftW table a.btnChart {
+  display: block;
+  width: 28px;
+  height: 18px;
+  margin: 0 auto;
+  border: 1px solid #e4e6ea;
+  border-radius: 0.2em;
+  overflow: hidden;
+}
+```
 
 - 차트 슬라이드 아이콘의 크기(28px, 18px)가 최소 크기를 지키고 있지 않다.
 
-용어의 설명
+### 용어의 설명
 
 - 순매수, 순매도 등의 전문 용어 정의에 대한 설명이 필요하다.
 - link 요소를 이용해서 연결하거나 abbr 속성을 이용해서 설명해준다.
