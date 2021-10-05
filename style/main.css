@@ -1,7 +1,16 @@
 div .tab {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 2fr;
   border-bottom: #f6f6f6 1px solid;
+}
+
+div.head-info {
+  margin: auto;
+  width: 80%;
+}
+table {
+  margin: auto;
+  width: 80%;
 }
 
 .tab div {
@@ -50,7 +59,7 @@ div .tab {
 
 .day-info p {
   text-align: end;
-  color: #777777;
+  color: #797676;
 }
 
 thead th {
@@ -76,7 +85,7 @@ tr {
 tr td {
   padding-top: 14px;
   line-height: 1.5em;
-  text-align: left;
+  text-align: center;
   white-space: nowrap;
 }
 
@@ -85,9 +94,19 @@ tr td:first-child {
 }
 
 tr td span.down {
-  color: #1b61d1 !important;
+  color: blue !important;
+  /* color: #1b61d1 !important; */
 }
 
 tr td span.up {
-  color: #f51818 !important;
+  color: #ee0700 !important;
+  /* color: #f51818 !important; */
+}
+
+caption {
+  text-align: center;
+  padding-top: 20px;
+  height: 40px;
+  font-weight: bold;
+  background-color: beige;
 }
